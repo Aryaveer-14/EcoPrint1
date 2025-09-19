@@ -103,8 +103,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               <p className="text-gray-300 mb-4">
                 Global average temperatures have risen by 1.1°C since pre-industrial times, leading to extreme weather events and ecosystem disruption.
               </p>
-              <div className="w-full h-32 bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[Temperature Chart Placeholder]</span>
+              <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
+                <img 
+                  src="/global-temperature-chart.png" 
+                  alt="Global Temperature Rise Chart showing departure from 1881-1910 average"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -116,8 +120,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               <p className="text-gray-300 mb-4">
                 Increased CO₂ absorption by oceans is causing acidification, threatening marine ecosystems and biodiversity worldwide.
               </p>
-              <div className="w-full h-32 bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[Ocean pH Chart Placeholder]</span>
+              <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
+                <img 
+                  src="/ocean-ph-chart.png" 
+                  alt="Ocean Acidification Chart showing pH decline and CO2 increase"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -129,8 +137,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               <p className="text-gray-300 mb-4">
                 We lose 10 million hectares of forest annually, reducing our planet's capacity to absorb CO₂ and destroying wildlife habitats.
               </p>
-              <div className="w-full h-32 bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[Deforestation Data Placeholder]</span>
+              <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
+                <img 
+                  src="/deforestation-chart.png" 
+                  alt="Tropical Primary Forest Loss 2002-2022 showing fire and non-fire related loss"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -208,8 +220,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
                   <li>• Cycling and walking have zero emissions</li>
                 </ul>
               </div>
-              <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[Transportation Impact Chart]</span>
+              <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg overflow-hidden">
+                <img 
+                  src="/transport-impact-chart.png" 
+                  alt="Transport and Environment Impact Chart showing environmental impact levels"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -225,8 +241,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
                   <li>• Solar panels can offset 100% of home energy use</li>
                 </ul>
               </div>
-              <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[Energy Savings Chart]</span>
+              <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg overflow-hidden">
+                <img 
+                  src="/energy-savings-chart.png" 
+                  alt="Pre and Post Retrofit Energy and Peak Demand Chart showing energy consumption reduction"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -243,7 +263,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
                 </ul>
               </div>
               <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[Diet Impact Comparison]</span>
+                <div className="text-center p-6">
+                  <div className="text-4xl mb-4">🌱</div>
+                  <h4 className="text-lg font-semibold text-white mb-2">Diet Impact Visualization</h4>
+                  <p className="text-gray-400 text-sm">Interactive chart showing carbon footprint comparison between different dietary choices</p>
+                </div>
               </div>
             </div>
           </div>
