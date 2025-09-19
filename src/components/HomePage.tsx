@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { Calculator, Leaf, Globe, ArrowRight, TrendingUp, Shield, Recycle } from 'lucide-react';
-import Header from './Header';
 
 interface HomePageProps {
   onNavigateToCalculator: () => void;
@@ -33,10 +32,30 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
-      <Header showBackButton={false} onNavigateToHome={() => {}} />
+      {/* Floating Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-400 to-green-500 rounded-lg shadow-lg shadow-green-500/25">
+                <Leaf className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-white">EcoTracker</h1>
+                <p className="text-sm text-gray-400">Carbon Footprint Calculator</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-2 text-sm text-gray-300">
+              <Globe className="w-4 h-4 text-green-400" />
+              <span>Making a difference, one calculation at a time</span>
+            </div>
+          </div>
+        </div>
+      </div>
       
       {/* Hero Section */}
-      <section className="relative py-20 px-4">
+      <section className="relative py-20 px-4 pt-32">
         <div className="container mx-auto text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-400 to-green-500 rounded-full mb-8 shadow-lg shadow-green-500/25 animate-pulse">
             <Leaf className="w-10 h-10 text-white" />

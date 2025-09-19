@@ -1,11 +1,13 @@
 import React from 'react';
-import { DivideIcon as LucideIcon } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 interface Field {
   key: string;
   label: string;
   unit: string;
   factor: number;
+  type?: 'input' | 'select';
+  options?: string[];
 }
 
 interface Category {
@@ -45,20 +47,40 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, data, onUpdate })
             <label className="block text-sm font-medium text-gray-300">
               {field.label}
             </label>
-            <div className="relative">
-              <input
-                type="number"
-                min="0"
-                step="0.1"
-                value={data[field.key] || 0}
-                onChange={(e) => onUpdate(field.key, parseFloat(e.target.value) || 0)}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 text-white placeholder-gray-500"
-                placeholder="0"
-              />
-              <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm text-gray-400">
-                {field.unit}
-              </span>
-            </div>
+            {field.type === 'select' && field.options ? (
+              <div className="grid grid-cols-1 gap-2">
+                {field.options.map((option, index) => (
+                  <button
+                    key={option}
+                    onClick={() => onUpdate(field.key, index)}
+                    className={`p-3 rounded-lg border transition-all duration-200 text-left ${
+                      data[field.key] === index
+                        ? 'bg-green-500/20 border-green-500 text-green-400'
+                        : 'bg-gray-800 border-gray-700 text-gray-300 hover:bg-green-500/10 hover:border-green-500/50'
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="relative">
+                <input
+                  type="text"
+                  value={data[field.key] || ''}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    const numValue = parseFloat(value) || 0;
+                    onUpdate(field.key, numValue);
+                  }}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors duration-200 text-white placeholder-gray-500"
+                  placeholder="Enter value..."
+                />
+                <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm text-gray-400">
+                  {field.unit}
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>
