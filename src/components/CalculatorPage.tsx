@@ -38,6 +38,7 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
     food: { meat: 0, dairy: 0, localFood: 0 },
     lifestyle: { shopping: 0, waste: 0, recycling: 0 }
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const updateCarbonData = (category: keyof CarbonData, field: string, value: number) => {
     setCarbonData(prev => ({
@@ -96,6 +97,18 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
     }
   ];
 
+  const hasData = () => {
+    return Object.values(carbonData).some(category =>
+      Object.values(category).some(value => value > 0)
+    );
+  };
+
+  const handleSubmit = () => {
+    if (hasData()) {
+      setIsSubmitted(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
       {/* Floating Header */}
@@ -148,10 +161,28 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ResultsPanel carbonData={carbonData} categories={categories} />
-          <RecommendationsPanel carbonData={carbonData} categories={categories} />
+        <div className="text-center mb-12">
+          <button
+            onClick={handleSubmit}
+            disabled={!hasData()}
+            className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 shadow-lg transform hover:scale-105 ${
+              hasData()
+                ? 'bg-gradient-to-r from-green-400 to-green-500 text-white hover:from-green-300 hover:to-green-400 shadow-green-500/25 hover:shadow-green-500/40'
+                : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+            }`}
+          >
+            <Calculator className="w-5 h-5 mr-2" />
+            {isSubmitted ? 'Results Generated' : 'Calculate My Impact'}
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </button>
         </div>
+
+        {isSubmitted && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <ResultsPanel carbonData={carbonData} categories={categories} />
+            <RecommendationsPanel carbonData={carbonData} categories={categories} />
+          </div>
+        )}
       </main>
     </div>
   );
