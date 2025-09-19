@@ -104,9 +104,7 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
   };
 
   const handleSubmit = () => {
-    if (hasData()) {
-      setIsSubmitted(true);
-    }
+    setIsSubmitted(true);
   };
 
   return (
@@ -164,12 +162,7 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
         <div className="text-center mb-12">
           <button
             onClick={handleSubmit}
-            disabled={!hasData()}
-            className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 shadow-lg transform hover:scale-105 ${
-              hasData()
-                ? 'bg-gradient-to-r from-green-400 to-green-500 text-white hover:from-green-300 hover:to-green-400 shadow-green-500/25 hover:shadow-green-500/40'
-                : 'bg-gray-700 text-gray-400 cursor-not-allowed'
-            }`}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-400 to-green-500 text-white font-semibold rounded-lg hover:from-green-300 hover:to-green-400 transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transform hover:scale-105"
           >
             <Calculator className="w-5 h-5 mr-2" />
             {isSubmitted ? 'Results Generated' : 'Calculate My Impact'}
@@ -177,10 +170,22 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
           </button>
         </div>
 
-        {isSubmitted && (
+        {isSubmitted && hasData() && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <ResultsPanel carbonData={carbonData} categories={categories} />
             <RecommendationsPanel carbonData={carbonData} categories={categories} />
+          </div>
+        )}
+
+        {isSubmitted && !hasData() && (
+          <div className="text-center py-12">
+            <div className="bg-gray-900 rounded-xl p-8 border border-gray-800 max-w-md mx-auto">
+              <Calculator className="w-12 h-12 text-gray-500 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-white mb-2">No Data Entered</h3>
+              <p className="text-gray-300">
+                Please fill out at least one field in the categories above to calculate your carbon footprint.
+              </p>
+            </div>
           </div>
         )}
       </main>
