@@ -29,16 +29,16 @@ export interface CarbonData {
 
 interface CalculatorPageProps {
   onNavigateToHome: () => void;
+  onNavigateToResults: (data: CarbonData) => void;
 }
 
-const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => {
+const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome, onNavigateToResults }) => {
   const [carbonData, setCarbonData] = useState<CarbonData>({
     transport: { carMiles: 0, publicTransport: 0, flights: 0 },
     energy: { electricity: 0, gas: 0, heating: 0 },
     food: { meat: 0, dairy: 0, localFood: 0 },
     lifestyle: { shopping: 0, waste: 0, recycling: 0 }
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const updateCarbonData = (category: keyof CarbonData, field: string, value: number) => {
     setCarbonData(prev => ({
@@ -104,7 +104,7 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
   };
 
   const handleSubmit = () => {
-    setIsSubmitted(true);
+    onNavigateToResults(carbonData);
   };
 
   return (
@@ -170,24 +170,6 @@ const CalculatorPage: React.FC<CalculatorPageProps> = ({ onNavigateToHome }) => 
           </button>
         </div>
 
-        {isSubmitted && hasData() && (
-          <div className="space-y-8">
-            <ResultsPanel carbonData={carbonData} categories={categories} />
-            <RecommendationsPanel carbonData={carbonData} categories={categories} />
-          </div>
-        )}
-
-        {isSubmitted && !hasData() && (
-          <div className="text-center py-12">
-            <div className="bg-gray-900 rounded-xl p-8 border border-gray-800 max-w-md mx-auto">
-              <Calculator className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">No Data Entered</h3>
-              <p className="text-gray-300">
-                Please fill out at least one field in the categories above to calculate your carbon footprint.
-              </p>
-            </div>
-          </div>
-        )}
       </main>
     </div>
   );
