@@ -105,8 +105,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </p>
               <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/60013/desert-drought-dehydrated-clay-60013.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Global Temperature Rise Chart showing departure from 1881-1910 average"
+                  src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                  alt="Extreme heat and drought conditions showing climate change effects"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -222,8 +222,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </div>
               <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/544966/pexels-photo-544966.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Transport and Environment Impact Chart showing environmental impact levels"
+                  src="https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Electric vehicle charging station showing sustainable transportation"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -263,11 +263,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
                 </ul>
               </div>
               <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg flex items-center justify-center">
-                <div className="text-center p-6">
-                  <div className="text-4xl mb-4">🌱</div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Diet Impact Visualization</h4>
-                  <p className="text-gray-400 text-sm">Interactive chart showing carbon footprint comparison between different dietary choices</p>
-                </div>
+                <img 
+                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Fresh vegetables and plant-based foods showing sustainable diet choices"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>
