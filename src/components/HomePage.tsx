@@ -105,7 +105,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </p>
               <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="/global-temperature-chart.png" 
+                  src="https://images.pexels.com/photos/60013/desert-drought-dehydrated-clay-60013.jpeg?auto=compress&cs=tinysrgb&w=800" 
                   alt="Global Temperature Rise Chart showing departure from 1881-1910 average"
                   className="w-full h-full object-cover"
                 />
@@ -122,7 +122,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </p>
               <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="/ocean-ph-chart.png" 
+                  src="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Ocean Acidification Chart showing pH decline and CO2 increase"
                   className="w-full h-full object-cover"
                 />
@@ -139,7 +139,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </p>
               <div className="w-full h-48 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="/deforestation-chart.png" 
+                  src="https://images.pexels.com/photos/1423600/pexels-photo-1423600.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Tropical Primary Forest Loss 2002-2022 showing fire and non-fire related loss"
                   className="w-full h-full object-cover"
                 />
@@ -222,7 +222,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </div>
               <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="/transport-impact-chart.png" 
+                  src="https://images.pexels.com/photos/544966/pexels-photo-544966.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Transport and Environment Impact Chart showing environmental impact levels"
                   className="w-full h-full object-cover"
                 />
@@ -243,7 +243,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToCalculator }) => {
               </div>
               <div className="lg:w-1/2 w-full h-64 bg-gray-700 rounded-lg overflow-hidden">
                 <img 
-                  src="/energy-savings-chart.png" 
+                  src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Pre and Post Retrofit Energy and Peak Demand Chart showing energy consumption reduction"
                   className="w-full h-full object-cover"
                 />
