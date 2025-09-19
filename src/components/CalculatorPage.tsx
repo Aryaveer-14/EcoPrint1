@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Leaf, Car, Home, Utensils, BarChart3, Globe } from 'lucide-react';
+import { Calculator, Leaf, Car, Home, Utensils, BarChart3, Globe, ArrowRight } from 'lucide-react';
 import CategoryCard from './CategoryCard';
 import ResultsPanel from './ResultsPanel';
 import RecommendationsPanel from './RecommendationsPanel';
